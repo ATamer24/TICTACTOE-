@@ -1,5 +1,6 @@
 //PLayers
 let player1_turn = true;
+let moves = 0;
 
 //Buttons ID
 const TL=document.querySelector('#TL');
@@ -13,63 +14,73 @@ const CR=document.querySelector('#CR');
 const BR=document.querySelector('#BR');
 const p1_div= document.querySelector('#p1');
 const p2_div= document.querySelector('#p2');
+const restartdiv = document.querySelector("#restart");
 
 TL.addEventListener('click',function(){
     print_TL();
     checkwin();
-    checkturn()
+    checkturn();
+    check_tie(); 
 });
 
 CL.addEventListener('click',function(){
     print_CL();
     checkwin();
     checkturn();
+    check_tie(); 
 });
 
 BL.addEventListener('click',function(){
     print_BL();
-    checkwin();
     checkturn();
+    check_tie(); 
+    checkwin();
 });
 
 TC.addEventListener('click',function(){
     print_TC();
-    checkwin();
     checkturn();
+    check_tie();
+    checkwin(); 
 });
 
 CC.addEventListener('click',function(){
     print_CC();
-    checkwin();
     checkturn();
+    check_tie();
+    checkwin(); 
 });
 
 BC.addEventListener('click',function(){
     print_BC();
-    checkwin();
     checkturn();
+    check_tie();
+    checkwin(); 
 });
 
 TR.addEventListener('click',function(){
     print_TR();
-    checkwin();
     checkturn();
+    check_tie();
+    checkwin(); 
 });
 
 CR.addEventListener('click',function(){
     print_CR();
-    checkwin();
     checkturn();
+    check_tie();
+    checkwin(); 
 });
 
 BR.addEventListener('click',function(){
     print_BR();
-    checkwin();
     checkturn();
+    check_tie();
+    checkwin(); 
 });
 
 function print_TL(){
-    if(player1_turn=true)
+    if(player1_turn==true)
     {
          TL.innerText='X';
     }
@@ -198,7 +209,9 @@ function checkwin(){
         createbutton(p2_div);
     }
     else{
-        
+        if (moves==9){
+            istie();
+        }
     }
 }
 
@@ -206,12 +219,10 @@ function checkturn(){
     player1_turn =!player1_turn;
 }
 
-
 function createbutton(winnerdiv){
         const restart = document.createElement("button");
         const rbtn_txt = document.createTextNode("PLAY AGAIN");
         restart.appendChild(rbtn_txt);
-        const restartdiv = document.querySelector("#restart");
         restart.setAttribute(
             'style','width: 250px; height: 75px; background-color: rgb(255,210,127); color: rgb(0, 73, 55); font-size: 30px; font-weight: 800; margin-top:10px; border-radius:15px;',
         );
@@ -243,6 +254,7 @@ function reset(){
         TR.innerText='';
         CR.innerText='';
         BR.innerText='';
+        moves=0;
         TL.disabled = false;
         CL.disabled = false;
         BL.disabled = false;
@@ -264,4 +276,43 @@ function disable_buttons(){
     TR.disabled = true;
     CR.disabled = true;
     BR.disabled = true;
+}
+
+function istie(){
+    const restart2 = document.createElement("button");
+    const rbtn_txt2 = document.createTextNode("PLAY AGAIN");
+    restart2.appendChild(rbtn_txt2);
+    restart2.setAttribute(
+        'style','width: 250px; height: 75px; background-color: rgb(255,210,127); color: rgb(0, 73, 55); font-size: 30px; font-weight: 800; margin-top:10px; border-radius:15px;',
+    );
+    restartdiv.appendChild(restart2);
+    /////////////////////////////////////////////////////////////
+
+
+    const p1_para = document.createElement("p");
+    const p1_tie = document.createTextNode("TIE");
+    p1_para.appendChild(p1_tie);
+    p1_para.setAttribute(
+        'style','text-align : center; padding-top:50px;',
+    )
+    // /////////////////////////////////////////////////////////
+    const p2_par = document.createElement("p");
+    const p2_tie = document.createTextNode("TIE");
+    p2_par.appendChild(p2_tie);
+    p2_par.setAttribute(
+        'style','text-align : center; padding-top:50px;',
+    )
+    p1_div.appendChild(p1_para);
+    p2_div.appendChild(p2_par);
+    restart2.addEventListener('click',function(){
+        reset();
+        restartdiv.removeChild(restart2)
+        p1_div.removeChild(p1_para);
+        p2_div.removeChild(p2_par);
+    });      
+}
+
+function check_tie(){
+    moves = moves + 1 ;
+    console.log(moves);
 }
