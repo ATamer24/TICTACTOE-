@@ -221,18 +221,18 @@ function checkturn(){
     player1_turn =!player1_turn;
     if (player1_turn==true){
         p1_div.setAttribute(
-            'style','width: 250px; height: 75px; background-color: rgb(255,210,127); border-radius:15px; text-align: center;',
+            'style','width: 250px; height: 50px; background-color: rgb(255,210,127); border-radius:15px; text-align: center;',
         );
 
         phead1.setAttribute(
-            'style','width: 250px; height: 75px; color: rgb(0,73,55); font-weight: 800;  margin-top:10px;',
+            'style','color: rgb(0,73,55); font-weight: 800;  margin-top:10px;',
         );
 
         p2_div.setAttribute(
-            'style','width: 250px; height: 75px; background-color: rgb(0,73,55); border-radius:15px; text-align: center;',
+            'style','width: 250px; height: 50px; background-color: rgb(0,73,55); border-radius:15px; text-align: center;',
         );
         phead2.setAttribute(
-            'style','width: 250px; height: 75px; color: rgb(255,210,127); font-weight: 800; margin-top:10px;',
+            'style','color: rgb(255,210,127); font-weight: 800; margin-top:10px;',
         );
     }
 
@@ -241,13 +241,13 @@ function checkturn(){
             'style','width: 250px; height: 50px; background-color: rgb(255,210,127); border-radius:15px; text-align: center;',
         );
         phead2.setAttribute(
-            'style','width: 250px; height: 50px; color: rgb(0,73,55);  font-weight: 800; margin-top:10px;',
+            'style','color: rgb(0,73,55);  font-weight: 800; margin-top:10px;',
         );
         p1_div.setAttribute(
             'style','width: 250px; height: 50px; background-color: rgb(0,73,55);  border-radius:15px; text-align: center;',
         );
         phead1.setAttribute(
-            'style','width: 250px; height: 50px; color: rgb(255,210,127); font-weight: 800; margin-top:10px;',
+            'style','color: rgb(255,210,127); font-weight: 800; margin-top:10px;',
         );
     }
 }
@@ -304,10 +304,10 @@ function reset(){
             'style','width: 250px; height: 50px; background-color: rgb(0,73,55); font-size: 30px; font-weight: 800; margin-top:10px; border-radius:15px; text-align: center;',
         );
         phead1.setAttribute(
-            'style','width: 250px; height: 75px; color: rgb(255,210,127); font-weight: 800; margin-top:10px;',
+            'style','color: rgb(255,210,127); font-weight: 800; margin-top:10px;',
         );
         phead2.setAttribute(
-            'style','width: 250px; height: 75px; color: rgb(255,210,127); font-weight: 800; margin-top:10px;',
+            'style','color: rgb(255,210,127); font-weight: 800; margin-top:10px;',
         );
 }
 
