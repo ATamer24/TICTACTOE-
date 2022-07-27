@@ -15,6 +15,8 @@ const BR=document.querySelector('#BR');
 const p1_div= document.querySelector('#p1');
 const p2_div= document.querySelector('#p2');
 const restartdiv = document.querySelector("#restart");
+const phead1= document.querySelector('#phead1');
+const phead2= document.querySelector('#phead2');
 
 TL.addEventListener('click',function(){
     print_TL();
@@ -217,6 +219,37 @@ function checkwin(){
 
 function checkturn(){
     player1_turn =!player1_turn;
+    if (player1_turn==true){
+        p1_div.setAttribute(
+            'style','width: 250px; height: 75px; background-color: rgb(255,210,127); border-radius:15px; text-align: center;',
+        );
+
+        phead1.setAttribute(
+            'style','width: 250px; height: 75px; color: rgb(0,73,55); font-weight: 800;  margin-top:10px;',
+        );
+
+        p2_div.setAttribute(
+            'style','width: 250px; height: 75px; background-color: rgb(0,73,55); border-radius:15px; text-align: center;',
+        );
+        phead2.setAttribute(
+            'style','width: 250px; height: 75px; color: rgb(255,210,127); font-weight: 800; margin-top:10px;',
+        );
+    }
+
+    else{
+        p2_div.setAttribute(
+            'style','width: 250px; height: 50px; background-color: rgb(255,210,127); border-radius:15px; text-align: center;',
+        );
+        phead2.setAttribute(
+            'style','width: 250px; height: 50px; color: rgb(0,73,55);  font-weight: 800; margin-top:10px;',
+        );
+        p1_div.setAttribute(
+            'style','width: 250px; height: 50px; background-color: rgb(0,73,55);  border-radius:15px; text-align: center;',
+        );
+        phead1.setAttribute(
+            'style','width: 250px; height: 50px; color: rgb(255,210,127); font-weight: 800; margin-top:10px;',
+        );
+    }
 }
 
 function createbutton(winnerdiv){
@@ -264,6 +297,18 @@ function reset(){
         TR.disabled = false;
         CR.disabled = false;
         BR.disabled = false;
+        p1_div.setAttribute(
+            'style','width: 250px; height: 50px; background-color: rgb(0,73,55); font-size: 30px; font-weight: 800; margin-top:10px; border-radius:15px; text-align: center;',
+        );
+        p2_div.setAttribute(
+            'style','width: 250px; height: 50px; background-color: rgb(0,73,55); font-size: 30px; font-weight: 800; margin-top:10px; border-radius:15px; text-align: center;',
+        );
+        phead1.setAttribute(
+            'style','width: 250px; height: 75px; color: rgb(255,210,127); font-weight: 800; margin-top:10px;',
+        );
+        phead2.setAttribute(
+            'style','width: 250px; height: 75px; color: rgb(255,210,127); font-weight: 800; margin-top:10px;',
+        );
 }
 
 function disable_buttons(){
@@ -314,5 +359,4 @@ function istie(){
 
 function check_tie(){
     moves = moves + 1 ;
-    console.log(moves);
 }
